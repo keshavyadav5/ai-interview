@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 import { serverUrl } from '../App';
+import { toast } from 'react-toastify'
 
 function Pricing() {
   const navigate = useNavigate()
@@ -82,7 +83,7 @@ function Pricing() {
 
     } catch (error) {
       console.error("Payment error:", error);
-      alert("Payment initialization failed. Please try again.");
+      toast.error("Payment initialization failed. Please try again.",error);
     } finally {
       setLoadingPlan(null);
     }
